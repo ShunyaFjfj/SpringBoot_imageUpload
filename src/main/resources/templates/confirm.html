@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録確認</title>
+</head>
+<body>
+	<form th:action="@{/confirm}" method="post" enctype="multipart/form-data">
+		<label for="userId">＜ユーザーID＞</label>
+		<p><input type="text" id="userId" name="userId"></p>
+		<p><input type="submit" value="検索"></p>
+		<br>
+		<p><span th:text="${errMsg}"></span></p>
+		<th:block th:if="${confirmResult != null}">
+			<span>＜ユーザー名＞</span>
+			<p><span th:text="${confirmResult.userName}"></span></p>
+			<span>＜プロフィール画像＞</span>
+			<p><img id="imageFile" th:src="${confirmResult.imageFile}"></img></p>
+		</th:block>
+	</form>
+	
+	<a th:href="@{/signup}">ユーザー登録画面へ</a>
+</body>
+</html>

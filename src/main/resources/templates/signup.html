@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録</title>
+</head>
+<body>
+	<form th:action="@{/signup}" method="post" enctype="multipart/form-data" th:object="${signupForm}">
+		<label for="userId">＜ユーザーID＞</label>
+		<p><input type="text" th:field="*{userId}"></p>
+		<label for="userName">＜ユーザー名＞</label>
+		<p><input type="text" th:field="*{userName}"></p>
+		<label for="imageFile">＜プロフィール画像＞</label>
+		<p><input type="file" th:field="*{imageFile}"></p>
+		<br><p><input type="submit" value="ユーザー登録"></p>
+	</form>
+	<a th:href="@{/confirm}">ユーザー確認画面へ</a>
+</body>
+</html>
